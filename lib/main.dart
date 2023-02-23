@@ -30,7 +30,29 @@ class MyAppState extends ChangeNotifier {
   List notification = [
     "Obiad zjedzony",
     "Drzemka odbyta",
-    "Popołudniowy spacer odbyty"
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty10",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbyty",
+    "Popołudniowy spacer odbytylast",
   ];
 }
 
@@ -97,8 +119,8 @@ class Mpage extends StatelessWidget {
       NameAndAvatar(),
       SizedBox(height: 25),
       Banner(),
-      SizedBox(height: 15),
-      Buttons()
+      SizedBox(height: 10),
+      Buttons(),
     ]);
   }
 }
@@ -126,7 +148,7 @@ class NameAndAvatar extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Michał Pochmara',
+                  '%użytkownik%',
                   style: TextStyle(
                     fontSize: 22,
                     foreground: Paint()
@@ -140,7 +162,7 @@ class NameAndAvatar extends StatelessWidget {
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(30.0),
+              padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
               child: Container(
                 height: 75,
                 width: 75,
@@ -202,82 +224,96 @@ class Buttons extends Mpage {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      GridView.count(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        primary: false,
-        padding: const EdgeInsets.all(40),
-        crossAxisSpacing: 50,
-        mainAxisSpacing: 50,
-        crossAxisCount: 2,
-        children: <Widget>[
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 86, 54, 244)),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Notifications()),
-              );
-            },
-            child: const Text(
-              'Powiadomienia',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+      ConstrainedBox(
+        constraints: const BoxConstraints(
+          minWidth: 100.0,
+          maxWidth: 300.0,
+          minHeight: 100.0,
+          maxHeight: 300.0,
+        ),
+        child: GridView.count(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          primary: false,
+          padding: const EdgeInsets.all(10),
+          crossAxisSpacing: 25,
+          mainAxisSpacing: 25,
+          crossAxisCount: 2,
+          children: <Widget>[
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                    const Color.fromARGB(255, 86, 54, 244)),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Notifications()),
+                );
+              },
+              child: const Flexible(
+                child: Text(
+                  'Powiadomienia',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 186, 181, 212)),
-            ),
-            onPressed: nothing(),
-            child: const Text(
-              'Chat z Nauczycielem',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+            Flexible(
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      const Color.fromARGB(255, 186, 181, 212)),
+                ),
+                onPressed: nothing(),
+                child: const Text(
+                  'Chat z Nauczycielem',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ),
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 240, 163, 163)),
-            ),
-            onPressed: nothing(),
-            child: const Text(
-              'Zajęcia',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+            Flexible(
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      const Color.fromARGB(255, 240, 163, 163)),
+                ),
+                onPressed: nothing(),
+                child: const Text(
+                  'Zajęcia',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ),
-          ),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(
-                  const Color.fromARGB(255, 110, 106, 110)),
-            ),
-            onPressed: nothing(),
-            child: const Text(
-              'Płatności',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+            Flexible(
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      const Color.fromARGB(255, 110, 106, 110)),
+                ),
+                onPressed: nothing(),
+                child: const Text(
+                  'Płatności',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       )
     ]);
   }

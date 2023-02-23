@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'main.dart';
 
 class Profile extends StatelessWidget {
@@ -54,10 +53,15 @@ class ListProfile extends StatelessWidget {
                   ),
                 ),
               ),
-              const Text('Jerzy Pochmara',
-                  style: TextStyle(
-                    fontSize: 25,
-                  )),
+              const Flexible(
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text('%przypisane dziecko%',
+                      style: TextStyle(
+                        fontSize: 25,
+                      )),
+                ),
+              ),
             ],
           ),
           Expanded(

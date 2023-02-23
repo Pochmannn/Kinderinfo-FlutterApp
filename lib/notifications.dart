@@ -11,8 +11,8 @@ class Notifications extends StatelessWidget {
         body: Column(
       children: const [
         NameAndAvatar(),
-        NotificationsList(),
-        SizedBox(height: 50)
+        Flexible(child: NotificationsList()),
+        SizedBox(height: 25)
       ],
     ));
   }
@@ -25,20 +25,20 @@ class NotificationsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color.fromARGB(255, 77, 152, 187)),
-              child: Padding(
-                padding: const EdgeInsets.all(25.0),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: const Color.fromARGB(255, 77, 152, 187)),
+            child: Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: Flexible(
                 child: Column(
                   children: const [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 25),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                       child: Text(
                         'Powiadomienia',
                         style: TextStyle(
@@ -49,12 +49,12 @@ class NotificationsList extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    NotificationListView(),
+                    Flexible(child: NotificationListView()),
                   ],
                 ),
-              ))
-        ],
-      ),
+              ),
+            ))
+      ],
     );
   }
 }
@@ -72,25 +72,34 @@ class NotificationListView extends StatelessWidget {
       );
     }
 
-    return SizedBox(
-      width: 250,
-      child: ListView(
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        children: [
-          for (var notif in appState.notification)
-            ListTile(
-              leading: const Icon(Icons.notifications),
-              title: Text(
-                notif,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
+    return ConstrainedBox(
+        constraints: const BoxConstraints(
+          minWidth: 50.0,
+          maxWidth: 200.0,
+          minHeight: 100.0,
+          maxHeight: 1500.0,
+        ),
+        child: Flexible(
+          child: Card(
+            child: ClipRect(
+              child: ListView(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: [
+                  for (var notif in appState.notification)
+                    ListTile(
+                      leading: const Icon(Icons.notifications),
+                      title: Text(
+                        notif,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
-        ],
-      ),
-    );
+          ),
+        ));
   }
 }
