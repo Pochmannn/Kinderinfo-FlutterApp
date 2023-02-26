@@ -54,6 +54,8 @@ class MyAppState extends ChangeNotifier {
     "Popołudniowy spacer odbyty",
     "Popołudniowy spacer odbytylast",
   ];
+
+  
 }
 
 class MyHomePage extends StatefulWidget {

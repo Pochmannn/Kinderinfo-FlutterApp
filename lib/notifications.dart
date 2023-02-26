@@ -65,6 +65,11 @@ class NotificationListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
+    var widthVar = MediaQuery.of(context).size.width;
+    var heightVar = MediaQuery.of(context).size.height;
+
+    var paddingVar = MediaQuery.of(context).padding;
+    var safeHeightVar = heightVar - paddingVar.top - paddingVar.bottom;
 
     if (appState.notification.isEmpty) {
       return const Center(
@@ -73,11 +78,11 @@ class NotificationListView extends StatelessWidget {
     }
 
     return ConstrainedBox(
-        constraints: const BoxConstraints(
+        constraints: BoxConstraints(
           minWidth: 50.0,
-          maxWidth: 200.0,
+          maxWidth: widthVar - 100,
           minHeight: 100.0,
-          maxHeight: 1500.0,
+          maxHeight: heightVar,
         ),
         child: Flexible(
           child: Card(
