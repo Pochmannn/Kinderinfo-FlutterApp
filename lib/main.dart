@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'notifications.dart';
 import 'profile.dart';
+import 'activities.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,26 +37,22 @@ class MyAppState extends ChangeNotifier {
     "Popołudniowy spacer odbyty",
     "Popołudniowy spacer odbyty",
     "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty10",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbyty",
-    "Popołudniowy spacer odbytylast",
   ];
 
-  
+  List monday = [
+    "Warsztaty z psami",
+    "Zawody sportowe",
+    "Warsztaty kuchenne",
+  ];
+  List tuesday = [
+    "Oglądanie filmów",
+    "Eksperymenty",
+    "Zawody sportowe",
+  ];
+  List wednesday = [
+    "Zawody szachowe",
+    "Wyścigi",
+  ];
 }
 
 class MyHomePage extends StatefulWidget {
@@ -254,63 +251,60 @@ class Buttons extends Mpage {
                       builder: (context) => const Notifications()),
                 );
               },
-              child: const Flexible(
-                child: Text(
-                  'Powiadomienia',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+              child: const Text(
+                'Powiadomienia',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
             ),
-            Flexible(
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      const Color.fromARGB(255, 186, 181, 212)),
-                ),
-                onPressed: nothing(),
-                child: const Text(
-                  'Chat z Nauczycielem',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                    const Color.fromARGB(255, 186, 181, 212)),
+              ),
+              onPressed: nothing(),
+              child: const Text(
+                'Chat z Nauczycielem',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
             ),
-            Flexible(
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      const Color.fromARGB(255, 240, 163, 163)),
-                ),
-                onPressed: nothing(),
-                child: const Text(
-                  'Zajęcia',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                    const Color.fromARGB(255, 240, 163, 163)),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Activities()),
+                );
+              },
+              child: const Text(
+                'Zajęcia',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
             ),
-            Flexible(
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      const Color.fromARGB(255, 110, 106, 110)),
-                ),
-                onPressed: nothing(),
-                child: const Text(
-                  'Płatności',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(
+                    const Color.fromARGB(255, 110, 106, 110)),
+              ),
+              onPressed: nothing(),
+              child: const Text(
+                'Płatności',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
             ),
