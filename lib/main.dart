@@ -117,7 +117,7 @@ class Mpage extends StatelessWidget {
     return Column(children: const [
       NameAndAvatar(),
       SizedBox(height: 25),
-      Banner(),
+      // Banner(),
       SizedBox(height: 10),
       Buttons(),
     ]);
@@ -254,6 +254,7 @@ class Buttons extends Mpage {
               child: const Text(
                 'Powiadomienia',
                 style: TextStyle(
+                  fontSize: 13,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),

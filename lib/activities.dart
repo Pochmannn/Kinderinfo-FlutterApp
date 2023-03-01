@@ -15,17 +15,19 @@ class Activities extends StatelessWidget {
         const NameAndAvatar(),
         Expanded(
           child: SingleChildScrollView(
-            child: ListView(
-              physics: ScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              children: [
-                MondayActivities(appState: appState),
-                TuesdayActivities(appState: appState),
-                WednesdayActivities(appState: appState),
-                WednesdayActivities(appState: appState),
-                WednesdayActivities(appState: appState),
-              ],
+            child: Flexible(
+              child: ListView(
+                physics: const ScrollPhysics(),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                children: [
+                  MondayActivities(appState: appState),
+                  TuesdayActivities(appState: appState),
+                  WednesdayActivities(appState: appState),
+                  WednesdayActivities(appState: appState),
+                  WednesdayActivities(appState: appState),
+                ],
+              ),
             ),
           ),
         ),
@@ -47,10 +49,6 @@ class MondayActivities extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(
-        constraints: BoxConstraints(
-          minWidth: MediaQuery.of(context).size.width * 0.7,
-          maxWidth: 800,
-        ),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 88, 43, 203),
           borderRadius: BorderRadius.circular(8),
@@ -115,10 +113,6 @@ class TuesdayActivities extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(
-        constraints: BoxConstraints(
-          minWidth: MediaQuery.of(context).size.width * 0.7,
-          maxWidth: 800,
-        ),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 186, 172, 221),
           borderRadius: BorderRadius.circular(8),
@@ -183,10 +177,6 @@ class WednesdayActivities extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Container(
-        constraints: BoxConstraints(
-          minWidth: MediaQuery.of(context).size.width * 0.7,
-          maxWidth: 800,
-        ),
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 88, 43, 203),
           borderRadius: BorderRadius.circular(8),

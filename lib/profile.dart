@@ -6,13 +6,25 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: const [
-      NameAndAvatar(),
-      SizedBox(height: 25),
-      BannerProfile(),
-      SizedBox(height: 25),
-      ListProfile(),
-      SizedBox(height: 25)
+    return Column(children: [
+      const NameAndAvatar(),
+      const BannerProfile(),
+      const SizedBox(height: 25),
+      Expanded(
+        child: SingleChildScrollView(
+          child: Flexible(
+            child: ListView(
+              physics: const ScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              children: const [
+                ListProfile(),
+              ],
+            ),
+          ),
+        ),
+      ),
+      const SizedBox(height: 25)
     ]);
   }
 }
@@ -26,7 +38,9 @@ class ListProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Container(
-      width: 325,
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.7,
+      ),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: const Color.fromARGB(255, 165, 206, 225)),
@@ -75,14 +89,14 @@ class ListProfile extends StatelessWidget {
                 padding: const EdgeInsets.all(15.0),
                 child: Column(children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       children: const [
                         Text('ID dziecka:',
                             style: TextStyle(
                               fontSize: 15,
                             )),
-                        Text('270195',
+                        Text('%ID%',
                             style: TextStyle(
                               fontSize: 20,
                             ))
@@ -90,14 +104,14 @@ class ListProfile extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       children: const [
                         Text('Grupa:',
                             style: TextStyle(
                               fontSize: 15,
                             )),
-                        Text('Leśna',
+                        Text('%Grupa%',
                             style: TextStyle(
                               fontSize: 20,
                             ))
@@ -105,14 +119,14 @@ class ListProfile extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       children: const [
                         Text('data urodzenia:',
                             style: TextStyle(
                               fontSize: 15,
                             )),
-                        Text('22.03.2005',
+                        Text('%Dataurodzenia%',
                             style: TextStyle(
                               fontSize: 20,
                             ))
@@ -120,14 +134,14 @@ class ListProfile extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       children: const [
                         Text('imię matki:',
                             style: TextStyle(
                               fontSize: 15,
                             )),
-                        Text('Janina',
+                        Text('%imiematki%',
                             style: TextStyle(
                               fontSize: 20,
                             ))
@@ -135,14 +149,14 @@ class ListProfile extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: Row(
                       children: const [
                         Text('imię ojca:',
                             style: TextStyle(
                               fontSize: 15,
                             )),
-                        Text('Michał',
+                        Text('%imieojca%',
                             style: TextStyle(
                               fontSize: 20,
                             ))
